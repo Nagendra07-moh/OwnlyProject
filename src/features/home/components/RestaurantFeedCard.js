@@ -1,5 +1,7 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../../shared/theme/colors';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 const formatCount = (count) => {
   if (!count) return '';
@@ -23,7 +25,7 @@ export function RestaurantFeedCard({ restaurant }) {
         {!!restaurant.tag && (
           <View style={styles.tag}>
             <Text numberOfLines={1} style={styles.tagText}>
-              {restaurant.tag}
+              {restaurant.tag} 
             </Text>
           </View>
         )}
@@ -46,12 +48,13 @@ export function RestaurantFeedCard({ restaurant }) {
           </View>
         </View>
         <View style={styles.metaRow}>
+          <MaterialIcons name="stars" size={16} color={colors.success}/>
           <Text style={styles.rating}>
-            
              {restaurant.rating}</Text>
           {!!restaurant.ratingCount && (
-            <Text style={styles.meta}>({formatCount(restaurant.ratingCount)})</Text>
+            <Text style={styles.meta}>({formatCount(restaurant.ratingCount)} •)</Text>
           )}
+          <MaterialCommunityIcons name="lightning-bolt-outline" size={12} color={colors.gray} />
           <Text style={styles.meta}>• {restaurant.eta}</Text>
         </View>
         <Text numberOfLines={1} style={styles.cuisines}>
@@ -102,10 +105,12 @@ const styles = StyleSheet.create({
   },
   knownFor: {
     position: 'absolute',
-    left: 10,
-    right: 10,
+    left: 0,
+    right: 90,
     bottom: 10,
-    borderRadius: 6,
+    borderRadius: 32,
+    borderTopLeftRadius:0,
+    borderBottomLeftRadius:0,
     backgroundColor: 'rgba(31, 31, 31, 0.72)',
     paddingHorizontal: 9,
     paddingVertical: 6,
@@ -127,7 +132,7 @@ const styles = StyleSheet.create({
     color: colors.ink,
     fontSize: 18,
     lineHeight: 22,
-    fontWeight: '900',
+    fontWeight: '700',
   },
   distanceWrap: {
     width: 84,
@@ -154,7 +159,7 @@ const styles = StyleSheet.create({
   rating: {
     color: colors.success,
     fontSize: 13,
-    fontWeight: '900',
+    fontWeight: '600',
   },
   meta: {
     color: colors.secondaryInk,

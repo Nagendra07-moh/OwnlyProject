@@ -1,6 +1,8 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { layout } from '../constants';
 import { colors } from '../../../shared/theme/colors';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 export function FoodDealCard({ item }) {
   const markerColor = item.vegOrNonVeg === 'veg' ? colors.success : '#e04444';
@@ -31,8 +33,10 @@ export function FoodDealCard({ item }) {
         {!!item.originalPrice && <Text style={styles.original}>₹{item.originalPrice}</Text>}
       </View>
       <View style={styles.metaRow}>
-        <Text style={styles.rating}>● {item.rating}</Text>
-        <Text style={styles.meta}>• {item.eta}</Text>
+      <MaterialIcons name="stars" size={12} color={colors.success} />
+        <Text style={styles.rating}> {item.rating}</Text>
+        <MaterialCommunityIcons name="lightning-bolt-outline" size={12} color={colors.gray} />
+        <Text style={styles.meta}> {item.eta}</Text>
       </View>
       <Text numberOfLines={1} style={styles.restaurant}>
         {item.restaurantName}
@@ -58,11 +62,11 @@ const styles = StyleSheet.create({
   },
   addButton: {
     position: 'absolute',
-    right: 0,
-    bottom: 0,
+    right: 2,
+    bottom: 2,
     width: 38,
     height: 38,
-    borderTopLeftRadius: 18,
+    borderRadius:100,
     backgroundColor: colors.brand,
     alignItems: 'center',
     justifyContent: 'center',
@@ -80,17 +84,17 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   foodMarker: {
-    width: 10,
+    width: 14,
     height: 10,
     borderWidth: 1,
-    borderRadius: 2,
+    borderRadius: 322,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 3,
   },
   foodDot: {
-    width: 5,
-    height: 5,
+    width: 8,
+    height: 4,
     borderRadius: 3,
   },
   name: {
@@ -121,7 +125,7 @@ const styles = StyleSheet.create({
   metaRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4,
+    gap: 1,
     marginTop: 6,
   },
   rating: {

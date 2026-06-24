@@ -7,15 +7,12 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 export function RestaurantMiniCard({ restaurant }) {
   const formatNumber = (num)  => {
     if (num < 1000) return String(num);
-  
     if (num < 1000000) {
       return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
     }
-  
     if (num < 1000000000) {
       return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
     }
-  
     return (num / 1000000000).toFixed(1).replace(/\.0$/, '') + 'B';
   }
   return (
@@ -40,7 +37,7 @@ export function RestaurantMiniCard({ restaurant }) {
         </View>
         <Text style={styles.rating}>
            {restaurant.rating}</Text>
-           <Text style={styles.orderCount}>{formatNumber(restaurant?.ratingCount)}</Text>
+           <Text style={styles.orderCount}>({formatNumber(restaurant?.ratingCount)})</Text>
         <Octicons name="dot-fill" size={12} color={colors.gray}/>
         <View style={{flexDirection:'row'}}>
         <MaterialCommunityIcons name="lightning-bolt-outline" size={12} color={colors.gray} />
@@ -105,7 +102,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 5,
-    gap: 4,
+    gap: 2,
+    overflow:'hidden'
   },
   rating: {
     color: colors.success,
