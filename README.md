@@ -1,4 +1,4 @@
-# React Native Expo App
+# Ownly Demo  Reac Native (Expo) App
 
 A React Native app built with Expo.
 
@@ -6,7 +6,6 @@ A React Native app built with Expo.
 
 [https://github.com/user-attachments/assets/demo-video-id](https://github.com/Nagendra07-moh/OwnlyProject/blob/main/Ownly_project_Nagendra.mp4)
 
-> Replace the above link with your screen recording URL.
 
 ## 🚀 Run Locally
 
@@ -46,6 +45,3 @@ npx expo start
 - Expo
 - JavaScript
 
-## 📄 License
-
-MIT
