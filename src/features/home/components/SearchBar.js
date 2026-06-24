@@ -1,7 +1,10 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors } from '../../../shared/theme/colors';
+import LowestPriceToggle from './LowestPriceToggle';
+import { useState } from 'react';
 
 export function SearchBar({ searchText, onSearchChange }) {
+  const [lowestPriceToggle,setLowestPriceToggle] = useState(false)
   return (
     <View style={styles.row}>
       <View style={styles.search}>
@@ -14,11 +17,7 @@ export function SearchBar({ searchText, onSearchChange }) {
           onChangeText={onSearchChange}
         />
       </View>
-      <View style={styles.priceMode}>
-        <Text style={styles.priceText}>LOWEST</Text>
-        <Text style={styles.priceText}>PRICE MODE</Text>
-      </View>
-      <Text style={styles.offText}>Off</Text>
+      <LowestPriceToggle value={lowestPriceToggle} onChange={() => setLowestPriceToggle(!lowestPriceToggle)}/>
     </View>
   );
 }

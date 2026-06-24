@@ -46,7 +46,9 @@ export function RestaurantFeedCard({ restaurant }) {
           </View>
         </View>
         <View style={styles.metaRow}>
-          <Text style={styles.rating}>● {restaurant.rating}</Text>
+          <Text style={styles.rating}>
+            
+             {restaurant.rating}</Text>
           {!!restaurant.ratingCount && (
             <Text style={styles.meta}>({formatCount(restaurant.ratingCount)})</Text>
           )}
